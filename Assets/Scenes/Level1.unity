@@ -191,11 +191,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5175427}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.6452293, y: 1.23, z: -17.06}
+  m_LocalPosition: {x: -0.19, y: 1.23, z: -11.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1544404975}
-  m_RootOrder: 7
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &49100656
 PrefabInstance:
@@ -205,17 +205,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1302417350, guid: 6a4bb9c3101259e4dab9bab0f821c5ca, type: 3}
-      propertyPath: mainGas
-      value: 
-      objectReference: {fileID: 49100657}
-    - target: {fileID: 1302417350, guid: 6a4bb9c3101259e4dab9bab0f821c5ca, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1925344024}
-    - target: {fileID: 8487720306866937687, guid: 6a4bb9c3101259e4dab9bab0f821c5ca, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 1302417350, guid: 6a4bb9c3101259e4dab9bab0f821c5ca, type: 3}
+      propertyPath: mainEngine
+      value: 
+      objectReference: {fileID: 8300000, guid: e98ad1d69e7bf2f48a05ac32069d8107, type: 3}
+    - target: {fileID: 1302417350, guid: 6a4bb9c3101259e4dab9bab0f821c5ca, type: 3}
+      propertyPath: mainEngineParticle
+      value: 
+      objectReference: {fileID: 49100657}
     - target: {fileID: 8804476040934465285, guid: 6a4bb9c3101259e4dab9bab0f821c5ca, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -557,11 +557,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1544404975 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8804476040934465285, guid: 6a4bb9c3101259e4dab9bab0f821c5ca, type: 3}
-  m_PrefabInstance: {fileID: 49100656}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1775144167
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,7 +768,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 27.099976, y: 110}
+  m_AnchoredPosition: {x: 49.2, y: 131}
   m_SizeDelta: {x: 201.80658, y: 30.75299}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1925344023

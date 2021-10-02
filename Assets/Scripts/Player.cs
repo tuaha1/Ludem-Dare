@@ -7,19 +7,25 @@ public class Player : MonoBehaviour
 {
     [SerializeField] int maxHealth = 1000;
     [SerializeField] int currentHealth;
-    [SerializeField] ParticleSystem mainGas;
-    AudioSource audioPlayer;
+    [SerializeField] ParticleSystem mainEngineParticle;
+    [SerializeField] ParticleSystem leftGas;
+    [SerializeField] ParticleSystem rightGas;
+
+    [SerializeField] AudioClip mainEngine;
+
+    AudioSource audioSource;
 
     int damageRate = 1;
     Rigidbody rb;
     public HealthBar healthBar;
 
     float Thrust = 10f;
-    
+    float sideThrust = 150f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        audioPlayer = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
 
         currentHealth = maxHealth;
         healthBar.setMaxHealth(maxHealth);
@@ -32,38 +38,92 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
-        if (Input.GetKey(KeyCode.Space))
-        {
-            HandleAudio();
-            mainGas.Play();
-            TakeDamage(damageRate);
-            rb.AddRelativeForce(Vector3.up * Time.deltaTime * Thrust);
-        }
-
-        if(Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(Vector3.forward);
-        }
-        
-        if(Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(-Vector3.forward);
-        }
+        HandleThrust();
+        HandleRotation();
 
         if(currentHealth <= 0)
         {
             Retry();
         }
+    }
+
+    void HandleRotation()
+    {
+        if (Input.GetKey(KeyCode.A))
+        {
+            RotateLeft();
+        }
+        else
+        {
+            rightGas.Stop();
+        }
+
+        if(Input.GetKey(KeyCode.D))
+        {
+            RotateRight();
+        }
+        else
+        {
+            leftGas.Stop();
+        }
 
     }
 
-    void HandleAudio()
+    void RotateLeft()
     {
-        if(!audioPlayer.isPlaying)
+        StartRotation(Vector3.forward);
+        if(!rightGas.isPlaying)
         {
-            audioPlayer.Play();
+            rightGas.Play();
         }
+
+    }
+
+    void RotateRight()
+    {
+        StartRotation(-Vector3.forward);
+        if(!leftGas.isPlaying)
+        {
+            leftGas.Play();
+        }
+
+    }
+
+    void StartRotation(Vector3 value)
+    {
+        transform.Rotate(value * Time.deltaTime * sideThrust);
+    }
+
+    void HandleThrust()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            StartThrusting();
+        }
+        else
+        {
+            StopThrusting();
+        }
+    }
+
+    void StartThrusting()
+    {
+        rb.AddRelativeForce(Vector3.up * Time.deltaTime * Thrust);
+        TakeDamage(damageRate);
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(mainEngine);
+        }
+        if (!mainEngineParticle.isPlaying)
+        {
+            mainEngineParticle.Play();
+        }
+    }
+
+    void StopThrusting()
+    {
+        audioSource.Stop();
+        mainEngineParticle.Stop();
     }
 
     void TakeDamage(int Damage)
