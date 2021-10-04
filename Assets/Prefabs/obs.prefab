@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 5828229311154154639}
   - component: {fileID: 7180923460482386100}
   - component: {fileID: 1535150077175319662}
+  - component: {fileID: 9019943164629807844}
+  - component: {fileID: 4071288061677231404}
   m_Layer: 0
   m_Name: obs
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,3 +97,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &9019943164629807844
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8418247009750808513}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &4071288061677231404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8418247009750808513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c6e9f67c063374bb566bad37ed2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8804476040934465289, guid: 6a4bb9c3101259e4dab9bab0f821c5ca, type: 3}
